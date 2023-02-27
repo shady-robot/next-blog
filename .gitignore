@@ -29,3 +29,8 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 .env
+
+# database
+/prisma/*.db
+/prisma/db.sqlite-journal
+
