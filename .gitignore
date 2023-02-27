@@ -34,3 +34,5 @@ yarn-error.log*
 /prisma/*.db
 /prisma/db.sqlite-journal
 
+/postgres/*
+
