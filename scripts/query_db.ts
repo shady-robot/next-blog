@@ -18,6 +18,7 @@ async function main() {
         posts: {
           create: {
             title: "Hello world",
+            content: "Reading the post from backend db"
           }
         }
     }
