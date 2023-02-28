@@ -137,15 +137,15 @@ export function HeaderMegaMenu() {
             color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
           />
 
-          <a href="#" className={classes.link}>
+          <Link href={"/"} className={classes.link}>
             Home
-          </a>
-          <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            Academy
-          </a>
+          </Link>
+          <Link href={"/posts/static"} className={classes.link}>
+            Static
+          </Link>
+          <Link href={"/posts/dynamic"} className={classes.link}>
+            Dynamic
+          </Link>
 
           <Divider
             my="sm"
