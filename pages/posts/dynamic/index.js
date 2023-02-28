@@ -1,4 +1,3 @@
-import { GetStaticProps } from "next";
 import Head from "next/head";
 import utilStyles from "../../../styles/utils.module.css";
 import PostsLists from "../../../components/posts/PostsList";
