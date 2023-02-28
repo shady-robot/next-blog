@@ -11,7 +11,7 @@ Create a blog example with [Next.js](https://nextjs.org/) and [React](https://re
 
 ## Part II - API Server
 
-Implement API endpoint with nextjs and Prisma, with SQLite and PostgreSQL.
+Implement API endpoint with nextjs and Prisma, with PostgreSQL.
 
 ### Prisma
 

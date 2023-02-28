@@ -2,8 +2,8 @@ import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import Link from "next/link";
 import { getSortedPostData } from "../lib/posts";
-import Date from "../components/date";
 import utilStyles from "../styles/utils.module.css";
+import PostsLists from "../components/posts/PostsList";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostData();
@@ -28,18 +28,10 @@ export default function Home({ allPostsData }) {
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+        <h2 className={utilStyles.headingLg}>
+          <Link href={"/posts/static"}>Static Blog - Local Markdown File</Link>
+        </h2>
+        <PostsLists posts={allPostsData} types="static" />
       </section>
     </Layout>
   );
