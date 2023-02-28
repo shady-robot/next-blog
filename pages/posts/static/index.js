@@ -13,6 +13,7 @@ export async function getStaticProps() {
   };
 }
 export default function Home({ allPostsData }) {
+  console.log(allPostsData);
   return (
     <BlogContainer>
       <Head>
@@ -20,9 +21,6 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>
-          Static Blog - Local Markdown File
-        </h2>
         <PostsLists posts={allPostsData} types="static" />
       </section>
     </BlogContainer>

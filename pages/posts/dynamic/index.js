@@ -24,7 +24,13 @@ export default function Feed({ feed }) {
   console.log(feed);
   return (
     <BlogContainer>
-      <h1>hello</h1>
+      <Head>
+        <title>Dynamic Posts From PostgreSQL</title>
+      </Head>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        {/* <PostsLists posts={allPostsData} types="static" /> */}
+        <h1>Hello</h1>
+      </section>
     </BlogContainer>
   );
 }
