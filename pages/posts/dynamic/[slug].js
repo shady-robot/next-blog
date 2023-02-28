@@ -6,7 +6,6 @@ import utilStyles from "../../../styles/utils.module.css";
 
 export async function getStaticPaths() {
   const paths = await getAllPostSlugs();
-  console.log(paths);
   return {
     paths,
     fallback: false,
@@ -15,7 +14,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const postData = await getPostDataBySlug(params.slug);
-  console.log("############");
   return { props: { postData } };
 }
 

@@ -3,7 +3,6 @@ import Date from "../Date";
 import utilStyles from "../../styles/utils.module.css";
 
 export default function PostsLists({ posts, types }) {
-  console.log(posts);
   return (
     <ul className={utilStyles.list}>
       {posts.map(({ id, createdAt, title, slug }) => (

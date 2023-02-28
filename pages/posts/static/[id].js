@@ -6,7 +6,6 @@ import utilStyles from "../../../styles/utils.module.css";
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
-  console.log(paths);
   return {
     paths,
     fallback: false,

@@ -1,19 +1,22 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import Link from "next/link";
-import { getSortedPostData } from "../lib/posts";
+import { getSortedPostData } from "../lib/static_posts";
 import utilStyles from "../styles/utils.module.css";
 import PostsLists from "../components/posts/PostsList";
+import { getDynamicPostsData } from "../lib/dynamic_posts";
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostData();
+  const staticPostsData = getSortedPostData();
+  const dynamicPostsData = await getDynamicPostsData();
   return {
     props: {
-      allPostsData,
+      staticPosts: staticPostsData,
+      dynamicPosts: dynamicPostsData,
     },
   };
 }
-export default function Home({ allPostsData }) {
+export default function Home({ staticPosts, dynamicPosts }) {
   return (
     <Layout home>
       <Head>
@@ -31,7 +34,14 @@ export default function Home({ allPostsData }) {
         <h2 className={utilStyles.headingLg}>
           <Link href={"/posts/static"}>Static Blog - Local Markdown File</Link>
         </h2>
-        <PostsLists posts={allPostsData} types="static" />
+        <PostsLists posts={staticPosts} types="static" />
+      </section>
+
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>
+          <Link href={"/posts/dynamic"}>Dynamic Blog - From PostgreSQL</Link>
+        </h2>
+        <PostsLists posts={dynamicPosts} types="dynamic" />
       </section>
     </Layout>
   );

@@ -1,23 +1,14 @@
 import { GetStaticProps } from "next";
-import prisma from "../../../lib/prisma";
 import Head from "next/head";
-import Link from "next/link";
 import utilStyles from "../../../styles/utils.module.css";
 import PostsLists from "../../../components/posts/PostsList";
 import { BlogContainer } from "../../../components/BlogContainer";
+import { getDynamicPostsData } from "../../../lib/dynamic_posts";
 
 export async function getStaticProps() {
-  const feed = await prisma.post.findMany({
-    where: { published: true },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  });
-  // JSON serializable data types with `createdAt`  ("[object Date]")
+  const feed = await getDynamicPostsData();
   return {
-    props: { feed: JSON.parse(JSON.stringify(feed)) },
+    props: { feed },
     revalidate: 10,
   };
 }
