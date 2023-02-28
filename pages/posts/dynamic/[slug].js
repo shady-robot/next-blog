@@ -1,11 +1,11 @@
 import Head from "next/head";
-import { getAllPostIds, getPostData } from "../../../lib/posts";
+import { getAllPostSlugs, getPostDataBySlug } from "../../../lib/dynamic_posts";
 import Layout from "../../../components/layout";
 import Date from "../../../components/Date";
 import utilStyles from "../../../styles/utils.module.css";
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = await getAllPostSlugs();
   console.log(paths);
   return {
     paths,
@@ -14,11 +14,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id);
+  const postData = await getPostDataBySlug(params.slug);
+  console.log("############");
   return { props: { postData } };
 }
 
 export default function Post({ postData }) {
+  console.log(postData);
   return (
     <Layout>
       <Head>
