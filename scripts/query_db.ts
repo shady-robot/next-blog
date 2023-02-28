@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import string_to_slug  from "../lib/util";
 
 const prisma = new PrismaClient()
 
@@ -11,14 +12,16 @@ async function main() {
     }
   })
 
+  const postTitle:string = "Hello world" 
   const bob = await prisma.user.create({
     data: {
         name: 'Bob',
         email: "bob@prisma.io",
         posts: {
           create: {
-            title: "Hello world",
-            content: "Reading the post from backend db"
+            title: postTitle,
+            content: "Reading the post from backend db",
+            slug: string_to_slug(postTitle)
           }
         }
     }
