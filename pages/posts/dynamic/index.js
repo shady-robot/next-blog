@@ -3,6 +3,7 @@ import prisma from "../../../lib/prisma";
 import Head from "next/head";
 import Link from "next/link";
 import utilStyles from "../../../styles/utils.module.css";
+import PostsLists from "../../../components/posts/PostsList";
 import { BlogContainer } from "../../../components/BlogContainer";
 
 export async function getStaticProps() {
@@ -14,22 +15,21 @@ export async function getStaticProps() {
       },
     },
   });
+  // JSON serializable data types with `createdAt`  ("[object Date]")
   return {
-    props: { feed },
+    props: { feed: JSON.parse(JSON.stringify(feed)) },
     revalidate: 10,
   };
 }
 
 export default function Feed({ feed }) {
-  console.log(feed);
   return (
     <BlogContainer>
       <Head>
         <title>Dynamic Posts From PostgreSQL</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        {/* <PostsLists posts={allPostsData} types="static" /> */}
-        <h1>Hello</h1>
+        <PostsLists posts={feed} types="dynamic" />
       </section>
     </BlogContainer>
   );
