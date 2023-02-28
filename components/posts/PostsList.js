@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Date from "../Date";
+import Date from "../date";
 import utilStyles from "../../styles/utils.module.css";
 
 export default function PostsLists({ posts, types }) {

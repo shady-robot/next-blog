@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { getAllPostSlugs, getPostDataBySlug } from "../../../lib/dynamic_posts";
 import Layout from "../../../components/layout";
-import Date from "../../../components/Date";
+import Date from "../../../components/date";
 import utilStyles from "../../../styles/utils.module.css";
 
 export async function getStaticPaths() {
