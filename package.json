@@ -11,6 +11,7 @@
     "@mantine/hooks": "^5.10.5",
     "@mantine/next": "^5.10.5",
     "@prisma/client": "^4.10.1",
+    "@tabler/icons-react": "^2.6.0",
     "date-fns": "^2.29.3",
     "gray-matter": "^4.0.3",
     "next": "latest",
