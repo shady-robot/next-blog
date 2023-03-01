@@ -91,9 +91,8 @@ export function HeaderMegaMenu() {
     useDisclosure(false);
   const { classes, theme } = useStyles();
   const { data: session, status } = useSession();
-  console.log(session);
   return (
-    <Box pb={120}>
+    <Box pb={10}>
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: "100%" }}>
           <BlogIcon />
@@ -107,10 +106,10 @@ export function HeaderMegaMenu() {
               Home
             </Link>
             <Link href={"/posts/static"} className={classes.link}>
-              Static
+              Posts
             </Link>
             <Link href={"/posts/dynamic"} className={classes.link}>
-              Dynamic
+              Todo
             </Link>
           </Group>
           {!session ? (
