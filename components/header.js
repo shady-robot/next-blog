@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
+
 import {
   createStyles,
   Header,
@@ -11,6 +13,7 @@ import {
   Divider,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+
 import { BlogIcon } from "./blogIcon";
 
 const useStyles = createStyles((theme) => ({
@@ -86,6 +89,8 @@ export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const { classes, theme } = useStyles();
+  const { data, status } = useSession();
+  console.log(data, status);
 
   return (
     <Box pb={120}>
@@ -110,8 +115,10 @@ export function HeaderMegaMenu() {
           </Group>
 
           <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Link href="/api/auth/signin">
+              {" "}
+              <Button variant="default">Log in</Button>
+            </Link>
           </Group>
 
           <Burger
@@ -153,8 +160,10 @@ export function HeaderMegaMenu() {
           />
 
           <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Link href="/api/auth/signin">
+              {" "}
+              <Button variant="default">Log in</Button>
+            </Link>
           </Group>
         </ScrollArea>
       </Drawer>
