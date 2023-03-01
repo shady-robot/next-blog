@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
+import utilStyles from "@/styles/utils.module.css";
+import image from "@/img/profile.jpg";
 
 const name = "Shady";
 export const siteTitle = "Shady's Blog based on Next.js";
@@ -31,7 +32,7 @@ export default function Layout({ children, home }) {
           <>
             <Image
               priority
-              src="/images/profile.jpg"
+              src={image}
               className={utilStyles.borderCircle}
               height={144}
               width={144}
@@ -44,7 +45,7 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <Image
                 priority
-                src="/images/profile.jpg"
+                src={image}
                 className={utilStyles.borderCircle}
                 height={108}
                 width={108}

@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import string_to_slug  from "../lib/util";
+
+import string_to_slug  from "@/lib/util";
 
 const prisma = new PrismaClient()
 

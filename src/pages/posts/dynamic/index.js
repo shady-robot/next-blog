@@ -1,8 +1,9 @@
 import Head from "next/head";
-import utilStyles from "../../../styles/utils.module.css";
-import PostsLists from "../../../components/posts/PostsList";
-import { BlogContainer } from "../../../components/BlogContainer";
-import { getDynamicPostsData } from "../../../lib/dynamic_posts";
+
+import utilStyles from "@/styles/utils.module.css";
+import PostsLists from "@/components/posts/PostsList";
+import { BlogContainer } from "@/components/BlogContainer";
+import { getDynamicPostsData } from "@/lib/dynamic_posts";
 
 export async function getStaticProps() {
   const feed = await getDynamicPostsData();

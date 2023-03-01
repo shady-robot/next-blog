@@ -7,7 +7,11 @@ import {
   Button,
   SimpleGrid,
 } from "@mantine/core";
-import image from "../../assets/images/404.svg";
+
+// import type {  ContainerProps } from '@mantine/core';
+
+// import image from "../../assets/images/404.svg";
+import image from "@/img/404.svg";
 
 const useStyles = createStyles((theme) => ({
   root: {

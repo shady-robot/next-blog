@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import EmailProvider from "next-auth/providers/email";
 import GitHubProvider from "next-auth/providers/github";
-import prisma from "../../../lib/prisma";
+import prisma from "@/lib/prisma";
 
 const options = {
   providers: [

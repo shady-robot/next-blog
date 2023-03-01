@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import { getSortedPostData } from "../lib/static_posts";
-import { getDynamicPostsData } from "../lib/dynamic_posts";
-import { HeaderMegaMenu } from "../components/header";
 
-import UserHome from "../components/home/userHome";
-import Landing from "../components/home/landing";
+import { getSortedPostData } from "@/lib/static_posts";
+import { getDynamicPostsData } from "@/lib/dynamic_posts";
+import { HeaderMegaMenu } from "@/components/header";
+
+import UserHome from "@/components/home/userHome";
+import Landing from "@/components/home/landing";
 
 export async function getStaticProps() {
   const staticPostsData = getSortedPostData();

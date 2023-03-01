@@ -15,7 +15,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
-import { BlogIcon } from "./blogIcon";
+import { BlogIcon } from "@/components/blogIcon";
 
 const useStyles = createStyles((theme) => ({
   link: {

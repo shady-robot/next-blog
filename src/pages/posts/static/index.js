@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { getSortedPostData } from "../../../lib/static_posts";
-import utilStyles from "../../../styles/utils.module.css";
-import PostsLists from "../../../components/posts/PostsList";
-import { BlogContainer } from "../../../components/BlogContainer";
+import { getSortedPostData } from "@/lib/static_posts";
+import utilStyles from "@/styles/utils.module.css";
+import PostsLists from "@/components/posts/PostsList";
+import { BlogContainer } from "@/components/BlogContainer";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostData();
