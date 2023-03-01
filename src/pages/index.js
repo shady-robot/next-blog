@@ -21,8 +21,6 @@ export async function getStaticProps() {
 }
 export default function Home(props) {
   const { data: session, status } = useSession();
-  console.log(status);
-  console.log(session);
   return (
     <>
       <HeaderMegaMenu />
