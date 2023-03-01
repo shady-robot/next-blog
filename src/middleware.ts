@@ -1,15 +1,20 @@
+// middleware.ts
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+
 export function middleware(request: NextRequest) {
-  const sessionToken = request.cookies.get('next-auth.session-token')?.value
-  if(!sessionToken){
-    const { pathname } = request.nextUrl
+  const { pathname, protocol } = request.nextUrl
+  let key = "next-auth.session-token"
+  //https://next-auth.js.org/configuration/options#usesecurecookies
+  if(protocol == "https:"){
+    key = `__Secure-${key}`
+  }
+  const isAuthenticated = request.cookies.has(key)
+  if(!isAuthenticated){
     return NextResponse.rewrite(new URL(`/api/auth/signin?callbackUrl=${pathname}`, request.url))
   }
-
-  const response = NextResponse.next()
-  return response
+  return NextResponse.next()
 }
 
 // See "Matching Paths" below to learn more
