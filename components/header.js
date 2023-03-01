@@ -11,6 +11,7 @@ import {
   Drawer,
   ScrollArea,
   Divider,
+  Avatar,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
@@ -89,9 +90,8 @@ export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const { classes, theme } = useStyles();
-  const { data, status } = useSession();
-  console.log(data, status);
-
+  const { data: session, status } = useSession();
+  console.log(session);
   return (
     <Box pb={120}>
       <Header height={60} px="md">
@@ -113,13 +113,22 @@ export function HeaderMegaMenu() {
               Dynamic
             </Link>
           </Group>
-
-          <Group className={classes.hiddenMobile}>
-            <Link href="/api/auth/signin">
+          {!session ? (
+            <Group className={classes.hiddenMobile}>
+              <Link href="/api/auth/signin">
+                {" "}
+                <Button variant="default">Log in</Button>
+              </Link>
+            </Group>
+          ) : (
+            <Group className={classes.hiddenMobile}>
               {" "}
-              <Button variant="default">Log in</Button>
-            </Link>
-          </Group>
+              <Avatar src={session.user.image} alt="it's me" />
+              <Button variant="default" onClick={() => signOut()}>
+                Logout
+              </Button>
+            </Group>
+          )}
 
           <Burger
             opened={drawerOpened}
@@ -159,12 +168,20 @@ export function HeaderMegaMenu() {
             color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
           />
 
-          <Group position="center" grow pb="xl" px="md">
-            <Link href="/api/auth/signin">
-              {" "}
-              <Button variant="default">Log in</Button>
-            </Link>
-          </Group>
+          {!session ? (
+            <Group position="center" grow pb="xl" px="md">
+              <Link href="/api/auth/signin">
+                {" "}
+                <Button variant="default">Log in</Button>
+              </Link>
+            </Group>
+          ) : (
+            <Group position="center" grow pb="xl" px="md">
+              <Button variant="default" onClick={() => signOut()}>
+                Logout
+              </Button>
+            </Group>
+          )}
         </ScrollArea>
       </Drawer>
     </Box>
