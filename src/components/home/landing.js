@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Layout, { siteTitle } from "@/components/layout";
+import Layout, { siteTitle } from "@/components/layout/layout";
 import PostsLists from "@/components/posts/PostsList";
 import utilStyles from "@/styles/utils.module.css";
 

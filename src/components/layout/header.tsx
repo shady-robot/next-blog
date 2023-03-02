@@ -15,7 +15,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
-import { BlogIcon } from "@/components/blogIcon";
+import { SiteLogo } from "@/components/site/siteLogo";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -95,7 +95,7 @@ export function HeaderMegaMenu() {
     <Box pb={10}>
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: "100%" }}>
-          <BlogIcon />
+          <SiteLogo />
 
           <Group
             sx={{ height: "100%" }}
