@@ -1,23 +1,24 @@
 import Link from "next/link";
+import { List, Text } from "@mantine/core";
+
 import Date from "@/components/date";
-import utilStyles from "@/styles/utils.module.css";
 
 export default function PostsLists({ posts, types }) {
   return (
-    <ul className={utilStyles.list}>
+    <List size="lg" icon={<></>}>
       {posts.map(({ id, createdAt, title, slug }) => (
-        <li className={utilStyles.listItem} key={id}>
+        <List.Item key={id}>
           {slug ? (
             <Link href={`/posts/${types}/${slug}`}>{title}</Link>
           ) : (
             <Link href={`/posts/${types}/${id}`}>{title}</Link>
           )}
           <br />
-          <small className={utilStyles.lightText}>
+          <Text>
             <Date dateString={createdAt} />
-          </small>
-        </li>
+          </Text>
+        </List.Item>
       ))}
-    </ul>
+    </List>
   );
 }

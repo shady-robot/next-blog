@@ -1,7 +1,10 @@
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 
+import Layout from "../layout/layout";
+
 export default function UserHome() {
   return (
+    <Layout>
     <Card shadow="sm" p="lg" radius="md" withBorder>
       <Card.Section>
         <Image
@@ -27,5 +30,6 @@ export default function UserHome() {
         Book classic tour now
       </Button>
     </Card>
+    </Layout>
   );
 }
