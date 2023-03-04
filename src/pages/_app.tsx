@@ -1,12 +1,13 @@
 import Head from "next/head";
+import type { AppType } from "next/app";
+import type { AppProps } from "next/app"
 import { MantineProvider } from "@mantine/core";
 import { SessionProvider } from "next-auth/react";
+import { trpc } from "@/utils/trpc";
 
 import "@/styles/globals.css";
 
-export default function App(props) {
-  const { Component, pageProps } = props;
-
+const MyApp: AppType = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -31,4 +32,6 @@ export default function App(props) {
       </MantineProvider>
     </>
   );
-}
+};
+
+export default trpc.withTRPC(MyApp);

@@ -72,3 +72,10 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Task {
+  id        String  @id @default(uuid())
+  text      String
+  completed Boolean @default(value: false)
+  createdAt DateTime @unique @default(now())
+}
