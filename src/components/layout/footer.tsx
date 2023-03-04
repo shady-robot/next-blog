@@ -32,7 +32,7 @@ interface FooterSimpleProps {
   links: { link: string; label: string }[];
 }
 
-export function FooterSimple({ links }: FooterSimpleProps) {
+export default function SiteFooter({ links }: FooterSimpleProps) {
   const { classes } = useStyles();
   const items = links.map((link) => (
     <Anchor<'a'>

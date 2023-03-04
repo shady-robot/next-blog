@@ -1,8 +1,8 @@
 import Head from "next/head";
+import { Container } from "@mantine/core";
 import { getSortedPostData } from "@/lib/static_posts";
 import utilStyles from "@/styles/utils.module.css";
 import PostsLists from "@/components/posts/PostsList";
-import { BlogContainer } from "@/components/BlogContainer";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostData();
@@ -14,7 +14,7 @@ export async function getStaticProps() {
 }
 export default function Home({ allPostsData }) {
   return (
-    <BlogContainer>
+    <Container>
       <Head>
         <title>Static Posts From Local Markdown File</title>
       </Head>
@@ -22,6 +22,6 @@ export default function Home({ allPostsData }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <PostsLists posts={allPostsData} types="static" />
       </section>
-    </BlogContainer>
+    </Container>
   );
 }

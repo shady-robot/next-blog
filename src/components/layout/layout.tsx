@@ -1,17 +1,18 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import { createStyles,Container} from "@mantine/core";
 
-import styles from "./layout.module.css";
-import utilStyles from "@/styles/utils.module.css";
-import image from "@/img/profile.jpg";
+import SiteHeader from "./header";
+import SiteFooter from "./footer";
 
-const name = "Shady";
-export const siteTitle = "Shady's Blog based on Next.js";
+const siteTitle = "Shady's Blog based on Next.js";
+const links = [
+  {link: "https://stackoverflow.com/users/3628275/shady" , label: "Stackoverflow"},
+  {link: "https://github.com/shady-robot" , label:"Github"},
+]
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
   return (
-    <div className={styles.container}>
+    <Container size="xl">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -27,45 +28,9 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src={image}
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt=""
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <Image
-                priority
-                src={image}
-                className={utilStyles.borderCircle}
-                height={108}
-                width={108}
-                alt=""
-              />
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/" className={utilStyles.colorInherit}>
-                {name}
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )}
-    </div>
+      <SiteHeader />
+      <Container>{children}</Container>
+    <SiteFooter links={links}/>
+  </Container>
   );
 }
