@@ -1,8 +1,7 @@
-import { createStyles, rem, Container, Image, Text, Stack } from '@mantine/core';
+import { createStyles, rem, Container, Image, Text, Stack, Title } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    // subscribe to color scheme changes right in your styles
    marginTop: rem(16)
   },
   username: {
@@ -16,7 +15,7 @@ export default function UserCard({username, image, description}) {
     <Container className={classes.wrapper}>
       <Stack align="center" justify="space-around" spacing="xs">
         <Image maw={160} mx="auto" radius={200} src={image.src} alt="User Profile" />
-        <h1 className={classes.username}>{username}</h1> 
+        <Title order={2} className={classes.username}>{username}</Title> 
         <Text size="lg">
         {description}
         </Text>

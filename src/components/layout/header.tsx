@@ -105,10 +105,10 @@ export default function SiteHeader() {
             <Link href={"/"} className={classes.link}>
               Home
             </Link>
-            <Link href={"/posts/static"} className={classes.link}>
+            <Link href={"/posts"} className={classes.link}>
               Posts
             </Link>
-            <Link href={"/posts/dynamic"} className={classes.link}>
+            <Link href={"/todo"} className={classes.link}>
               Todo
             </Link>
           </Group>

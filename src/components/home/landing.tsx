@@ -2,7 +2,7 @@ import {Stack, Text, Title} from '@mantine/core';
 
 import Layout from "@/components/layout/layout";
 import UserCard from "./userCard";
-import PostsLists from "@/components/posts/PostsList";
+import PostsLists from "@/components/posts/postsList";
 import image from "@/img/profile.jpg";
 
 
