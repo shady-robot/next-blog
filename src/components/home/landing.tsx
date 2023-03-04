@@ -1,30 +1,39 @@
+import {Stack, Text, Title} from '@mantine/core';
+
 import Layout from "@/components/layout/layout";
 import UserCard from "./userCard";
 import PostsLists from "@/components/posts/PostsList";
-import utilStyles from "@/styles/utils.module.css";
 import image from "@/img/profile.jpg";
 
 
 export default function Landing({ staticPosts, dynamicPosts }) {
   const username = "Shady"
-  const description =  <p>This is a sample website - you’ll be building a
-    site like this on{" "} <a href="https://nextjs.org/learn">our Next.js
-    tutorial</a></p>
+  const description =  <Text>This is a mply dummy text of the printing and
+    typesetting industry. Lorem Ipsum has been the industry's standard dummy
+    text ever since the 1500s, when an unknown printer took a galley of type and
+    scrambled it to make a type specimen book. It has survived not only five
+    centuries, but also the leap into electronic typesetting, remaining
+    essentially unchanged. It was popularised in the 1960s with the release of
+    Letraset sheets containing Lorem Ipsum passages, and more recently with
+    desktop publishing software like Aldus PageMaker including versions of 
+    website - you’ll be building a site like this on{" "}
+    <a href="https://nextjs.org/learn">our Next.js
+    tutorial</a></Text>
   return (
     <Layout>
       <UserCard image={image} username={username} description={description}/>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>
+      <Stack spacing="xs" justify="flex-start" mt={32}>
+      <Title order={4}>
           Static Blog - Local Markdown File
-        </h2>
+       </Title>
         <PostsLists posts={staticPosts} types="static" />
-      </section>
+      </Stack>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Dynamic Blog - From PostgreSQL</h2>
+      <Stack  spacing="xs" justify="flex-start"  mt="3rem">
+      <Title order={4}>Dynamic Blog - From PostgreSQL</Title>
         <PostsLists posts={dynamicPosts} types="dynamic" />
-      </section>
+      </Stack>
     </Layout>
   );
 }

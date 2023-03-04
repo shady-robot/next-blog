@@ -8,9 +8,6 @@ const useStyles = createStyles((theme) => ({
   username: {
     margin: 0
   },
-  description: {
-    margin: rem(0)
-  }
 }));
 
 export default function UserCard({username, image, description}) {
@@ -20,7 +17,7 @@ export default function UserCard({username, image, description}) {
       <Stack align="center" justify="space-around" spacing="xs">
         <Image maw={160} mx="auto" radius={200} src={image.src} alt="User Profile" />
         <h1 className={classes.username}>{username}</h1> 
-        <Text size="lg" className={classes.description}>
+        <Text size="lg">
         {description}
         </Text>
       </Stack>

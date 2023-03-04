@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { createStyles,Container} from "@mantine/core";
+import { Container} from "@mantine/core";
 
 import SiteHeader from "./header";
 import SiteFooter from "./footer";
@@ -29,7 +29,7 @@ export default function Layout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <SiteHeader />
-      <Container>{children}</Container>
+      <Container mih="calc(100vh - 320px)">{children}</Container>
     <SiteFooter links={links}/>
   </Container>
   );
