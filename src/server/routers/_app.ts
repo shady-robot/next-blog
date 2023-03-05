@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { procedure, router } from '../trpc';
+import { todoRouter } from './todo';
 
 export const appRouter = router({
   hello: procedure
@@ -13,6 +14,7 @@ export const appRouter = router({
         greeting: `hello ${input.text}`,
       };
     }),
+    todo: todoRouter,
 });
 
 // export type definition of API

@@ -1,7 +1,7 @@
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
-import prisma from "./prisma";
+import prisma from "@/utils/prisma";
 
 export async function getDynamicPostsData() {
   const feed = await prisma.post.findMany({
